@@ -1,0 +1,16 @@
+{
+  "name": "wdio-testing-project",
+  "version": "1.0.0",
+  "description": "Automated testing with webdriverIO practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webdriverio",
+    "selenium",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC"
+}
