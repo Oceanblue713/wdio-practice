@@ -10,5 +10,5 @@ describe('DuckDuckGo search Test', () => {
   it('verify title value', () => {
     const title = browser.getTitle();
     expect(title).to.contains('WebdriverIO')
-  })
+  });
 });
