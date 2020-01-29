@@ -5,10 +5,12 @@ describe('WebdriverIO basics',() => {
     const url = 'http://zero.webappsecurity.com/'
     browser.url(url);
 
-    const pageTitle = browser.getTitle();
-    const pageUrl = browser.getUrl();
+    // const pageTitle = browser.getTitle();
+    // const pageUrl = browser.getUrl();
 
-    expect(pageTitle).to.contains('Personal Banking');
-    expect(pageUrl).to.contains('webapp');
+    const metadata = browser.getMetadata()
+
+    expect(metadata.title).to.contains('Personal Banking');
+    expect(metadata.url).to.contains('webapp');
   });
 });
