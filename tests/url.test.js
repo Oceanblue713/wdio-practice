@@ -20,5 +20,7 @@ describe('WebdriverIO basics',() => {
 
     const loginForm = $('#login_form');
     loginForm.waitForExist(5000);
-  })
+    loginForm.waitForDisplayed();
+    loginForm.waitForEnabled();
+  });
 });
