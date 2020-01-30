@@ -13,4 +13,14 @@ describe('WebdriverIO basics',() => {
     expect(metadata.title).to.contains('Personal Banking');
     expect(metadata.url).to.contains('webapp');
   });
+
+  it('waitForExist example', () => {
+    const signButton = $('#signin_button');
+    signButton.click();
+
+    const loginForm = $('#login_form');
+    loginForm.waitForExist(5000);
+    loginForm.waitForDisplayed();
+    loginForm.waitForEnabled();
+  });
 });
