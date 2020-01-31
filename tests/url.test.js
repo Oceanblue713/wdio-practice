@@ -23,4 +23,16 @@ describe('WebdriverIO basics',() => {
     loginForm.waitForDisplayed();
     loginForm.waitForEnabled();
   });
+
+  it('static waiting', () => {
+    browser.pause(3000);
+  });
+
+  it('inject javascript into the browser', () => {
+    const result = browser.execute((numA, numB) => {
+      return numA + numB;
+    }, 5, 6)
+    console.log(result);
+    expect(result).to.equal(11);
+  })
 });
