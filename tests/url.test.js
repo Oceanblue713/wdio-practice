@@ -34,5 +34,16 @@ describe('WebdriverIO basics',() => {
     }, 5, 6)
     console.log(result);
     expect(result).to.equal(11);
+  });
+
+  it('working with inputs', () => {
+    before(() => {
+      browser.url('http://zero.webappsecurity.com/');
+    });
+    const searchbox = $('#searchTerm');
+    searchbox.addValue('WDIO');
+    searchbox.clearValue();
+    searchbox.setValue('webdriverIO');
+    browser.pause(3000);
   })
 });
