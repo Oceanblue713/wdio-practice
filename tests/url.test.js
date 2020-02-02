@@ -35,15 +35,25 @@ describe('WebdriverIO basics',() => {
     console.log(result);
     expect(result).to.equal(11);
   });
+});
+
+describe('Index page', () => {
+  beforeEach(() => {
+    browser.url('http://zero.webappsecurity.com/');
+  });
 
   it('working with inputs', () => {
-    before(() => {
-      browser.url('http://zero.webappsecurity.com/');
-    });
     const searchbox = $('#searchTerm');
     searchbox.addValue('WDIO');
     searchbox.clearValue();
     searchbox.setValue('webdriverIO');
     browser.pause(3000);
-  })
+  });
+
+  it('checking the selectors state', () => {
+    const signInBtn = $('#signin_button');
+    expect(signInBtn.isExisting()).to.be.true;
+    expect(signInBtn.isSelected()).to.be.false;
+    expect(signInBtn.isDisplayed()).to.be.true;
+  });
 });
