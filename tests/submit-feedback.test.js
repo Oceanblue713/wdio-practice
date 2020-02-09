@@ -17,13 +17,11 @@ describe('Submit feedback Form Test', () => {
   });
 
   it('should submit feedback form', () => {
-    $('form').waitForExist(5000);
-    $('#name').setValue('Sarah');
-    $('#email').setValue('sarah@mail.com');
-    $('#subject').setValue('Subject');
-    $('#comment').setValue('Comments');
-    $('.btn-primary').click();
-    browser.waitAndClick('.btn-primary')
+    browser.waitAndTypeText('#name', 'Sarah');
+    browser.waitAndTypeText('#email', 'sarah@mail.com');
+    browser.waitAndTypeText('#subject', 'subject');
+    browser.waitAndTypeText('#comment', 'some comments');
+    browser.waitAndClick('.btn-primary');
   });
 
   it('should show success feedback page',() => {

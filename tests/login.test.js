@@ -18,12 +18,10 @@ describe('Login Test', () => {
 
   it('should submit login form', () => {
     const loginForm = $('#login_form')
-    const username = $('#user_login');
-    const password = $('#user_password');
-
+  
     loginForm.waitForExist(5000);
-    username.setValue('Laura');
-    password.setValue('password');
+    browser.waitAndTypeText('#user_login', 'Laura');
+    browser.waitAndTypeText('#user_password', 'password')
     browser.waitAndClick('.btn-primary');
   });
 
