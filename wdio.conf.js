@@ -173,6 +173,15 @@ exports.config = {
                 title: this.getTitle(),
             }
         })
+
+        browser.addCommand('waitAndClick', function(selector) {
+            try {
+                $(selector).waitforExist()
+                $(selector).click()
+            } catch(error) {
+                throw new Error(`Could not click on selector: ${selector}`)
+            }
+        })
     },
     /**
      * Runs before a WebdriverIO command gets executed.
