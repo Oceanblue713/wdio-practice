@@ -10,8 +10,7 @@ describe('Login Test', () => {
   });
 
   it('should click on signin button', () => {
-    const signInButton = $('#signin_button');
-    signInButton.click();
+    browser.waitAndClick('#signin_button');
 
     const metadata = browser.getMetadata();
     expect(metadata.url).to.contains('login.html');
@@ -21,12 +20,11 @@ describe('Login Test', () => {
     const loginForm = $('#login_form')
     const username = $('#user_login');
     const password = $('#user_password');
-    const submitButton = $('.btn-primary');
 
     loginForm.waitForExist(5000);
     username.setValue('Laura');
     password.setValue('password');
-    submitButton.click();
+    browser.waitAndClick('.btn-primary');
   });
 
   it('should show error message', () => {

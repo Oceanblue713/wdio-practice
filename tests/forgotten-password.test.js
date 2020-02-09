@@ -10,17 +10,13 @@ describe('Forgotten Password Test', () => {
   });
 
   it('should click on signin button',() => {
-    const signInButton = $('#signin_button');
-    signInButton.click();
-
+    browser.waitAndClick('#signin_button');
     const metadata = browser.getMetadata();
     expect(metadata.url).to.contains('login.html');
   });
 
   it('should click on forgotten password link', () => {
-    const passwordLink = $('*=Forgot your password ?')
-    passwordLink.waitForExist(5000);
-    passwordLink.click();
+    browser.waitAndClick('*=Forgot your password ?')
 
     const pageTitle = $('h3')
     pageTitle.waitForExist(5000);
@@ -29,10 +25,8 @@ describe('Forgotten Password Test', () => {
 
   it('should reques new password',() => {
     const emailInput = $('#user_email');
-    const submitButton = $('.btn-primary');
-
     emailInput.waitForExist(5000);
     emailInput.setValue('aaa@a.a');
-    submitButton.click();
+    browser.waitAndClick('.btn-primary');
   });
 });

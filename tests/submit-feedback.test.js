@@ -10,8 +10,7 @@ describe('Submit feedback Form Test', () => {
   });
 
   it ('should navigate to feedback page', () => {
-    $('#feedback').waitForExist(5000);
-    $('#feedback').click();
+    browser.waitAndClick('#feedback')
 
     const metadata = browser.getMetadata();
     expect(metadata.url).to.contains('feedback.html');
@@ -24,6 +23,7 @@ describe('Submit feedback Form Test', () => {
     $('#subject').setValue('Subject');
     $('#comment').setValue('Comments');
     $('.btn-primary').click();
+    browser.waitAndClick('.btn-primary')
   });
 
   it('should show success feedback page',() => {
