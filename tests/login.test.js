@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import * as dataHelper from '../lib/data-helpers';
 
 describe('Login Test', () => {
   it('should navigate to homepage', () => {
@@ -20,7 +21,7 @@ describe('Login Test', () => {
     const loginForm = $('#login_form')
   
     loginForm.waitForExist(5000);
-    browser.waitAndTypeText('#user_login', 'Laura');
+    browser.waitAndTypeText('#user_login', dataHelper.getRandomName);
     browser.waitAndTypeText('#user_password', 'password')
     browser.waitAndClick('.btn-primary');
   });
