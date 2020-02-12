@@ -17,6 +17,10 @@ class LoginPage extends BasePage {
     return $('.btn-primary');
   }
 
+  get errorMessage() {
+    return $('.alert-error');
+  }
+
   open() {
     super.open('http://zero.webappsecurity.com/login.html')
   }
