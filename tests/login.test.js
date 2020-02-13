@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import * as dataHelper from '../lib/data-helpers';
 import LoginPage from '../page-objects/LoginPage';
+import Navbar from '../components/Navbar';
 
 describe('Login Test', () => {
   it ('should deny access with wrong creds', () => {
