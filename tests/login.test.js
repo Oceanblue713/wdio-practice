@@ -6,11 +6,7 @@ import Navbar from '../components/Navbar';
 describe('Login Test', () => {
   it ('should deny access with wrong creds', () => {
     LoginPage.open()
-    LoginPage.loginForm.waitForExist()
-    LoginPage.username.setValue('Sarah')
-    LoginPage.password.setValue('password')
-    LoginPage.submitButton.click()
-    LoginPage.wait(2000)
+    LoginPage.loginToApplication("Sarah", "password")
     expect(LoginPage.errorMessage.getText()).to.contains('Login and/or password are wrong.');
   })
-})
+});
