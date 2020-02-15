@@ -24,6 +24,13 @@ class LoginPage extends BasePage {
   open() {
     super.open('http://zero.webappsecurity.com/login.html')
   }
+
+  loginToApplication(username, password) {
+    this.loginForm.waitForExist();
+    this.username.setValue(username);
+    this.password.setValue(password);
+    this.submitButton.click();
+  }
 }
 
 export default new LoginPage();
