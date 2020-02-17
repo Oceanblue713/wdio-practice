@@ -21,6 +21,10 @@ class LoginPage extends BasePage {
     return $('.alert-error');
   }
 
+  get forgottenPasswordLink() {
+    return $('*=Forgot your password')
+  }
+
   open() {
     super.open('http://zero.webappsecurity.com/login.html')
   }
