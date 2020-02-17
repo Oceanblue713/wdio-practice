@@ -1,4 +1,7 @@
 import { expect } from 'chai';
+import Navbar from '../components/Navbar';
+import LoginPage from '../page-objects/LoginPage';
+import ForgottenPasswordPage from '../page-objects/ForgottenPasswordPage';
 
 describe('Forgotten Password Test', () => {
   it('shold navigate to homepage', () => {
@@ -10,21 +13,22 @@ describe('Forgotten Password Test', () => {
   });
 
   it('should click on signin button',() => {
-    browser.waitAndClick('#signin_button');
+    Navbar.signInButton.waitForExist();
+    Navbar.signInButton.click();
+
     const metadata = browser.getMetadata();
     expect(metadata.url).to.contains('login.html');
   });
 
   it('should click on forgotten password link', () => {
-    browser.waitAndClick('*=Forgot your password ?')
+    LoginPage.forgottenPasswordLink.waitForExist();
+    LoginPage.forgottenPasswordLink.click();
 
-    const pageTitle = $('h3')
-    pageTitle.waitForExist(5000);
-    expect(pageTitle.getText()).to.contains('Forgotten Password');
+    ForgottenPasswordPage.title.waitForExist();
+    expect(ForgottenPasswordPage.title.getText()).to.contains('Forgotten Password');
   });
 
   it('should reques new password',() => {
-    browser.waitAndTypeText('#user_email', 'aaa@a.a')
-    browser.waitAndClick('.btn-primary');
+    ForgottenPasswordPage.submitEmail('sarah@email.com');
   });
 });
