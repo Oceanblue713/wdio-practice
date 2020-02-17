@@ -1,4 +1,6 @@
 import { expect } from 'chai';
+import Navbar from '../components/Navbar';
+import FeedbackPage from '../page-objects/FeedbackPage';
 
 describe('Submit feedback Form Test', () => {
   before(function() {
@@ -10,21 +12,17 @@ describe('Submit feedback Form Test', () => {
   });
 
   it ('should navigate to feedback page', () => {
-    browser.waitAndClick('#feedback')
+    Navbar.feedback.click();
 
     const metadata = browser.getMetadata();
     expect(metadata.url).to.contains('feedback.html');
   });
 
   it('should submit feedback form', () => {
-    browser.waitAndTypeText('#name', 'Sarah');
-    browser.waitAndTypeText('#email', 'sarah@mail.com');
-    browser.waitAndTypeText('#subject', 'subject');
-    browser.waitAndTypeText('#comment', 'some comments');
-    browser.waitAndClick('.btn-primary');
+    FeedbackPage.submitFeedback('sarah', 'sarah@email.com', 'Title', 'Hello');
   });
 
   it('should show success feedback page',() => {
-    $('#feedback-title').waitForExist(5000);
+    FeedbackPage.feedbackTitle.waitForExist();
   })
 })
